@@ -1,0 +1,468 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f3f4f6;
+    color: #333;
+    line-height: 1.6;
+}
+
+h1, h2 {
+    margin: 0;
+    padding: 0.5em;
+}
+
+h1 {
+    font-size: 2em;
+    text-align: center;
+    color: #ffffff;
+    background-color: #96908F;
+}
+
+h2 {
+    font-size: 1.5em;
+    color: #4CAF50;
+    margin-bottom: 0.5em;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #4CAF50;
+    padding: 1em;
+}
+
+
+form {
+    background-color: #ffffff;
+    padding: 1em;
+    margin: 1em 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+form input, form textarea, form select, form button {
+    display: block;
+    width: 100%;
+    padding: 0.8em;
+    margin: 0.5em 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+form button {
+    background-color: #4CAF50;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #45a049;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1em 0;
+    font-size: 1em;
+}
+
+table th, table td {
+    text-align: left;
+    padding: 0.8em;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+button {
+    margin: 0.2em;
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button.delete {
+    background-color: #ff5722;
+    color: #fff;
+}
+
+button.delete:hover {
+    background-color: #e64a19;
+}
+
+button.restock {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+button.restock:hover {
+    background-color: #45a049;
+}
+
+section {
+    margin: 1em auto;
+    padding: 1em;
+    max-width: 800px;
+}
+
+.hidden {
+    display: none;
+}
+
+footer {
+    text-align: center;
+    padding: 1em;
+    background-color: #4CAF50;
+    color: #fff;
+    margin-top: 2em;
+}
+
+button i {
+    margin-right: 0.5em;
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+    }
+
+    nav button {
+        width: 100%;
+        margin: 0.2em 0;
+    }
+
+    section {
+        padding: 1em 0.5em;
+    }
+
+    table {
+        font-size: 0.9em;
+    }
+
+    form input, form textarea, form select, form button {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5em;
+    }
+
+    nav button {
+        font-size: 0.9em;
+    }
+
+    table th, table td {
+        font-size: 0.8em;
+        padding: 0.5em;
+    }
+}
+
+button.delete {
+    background-color: #ff5722;
+    color: #fff;
+    padding: 0.5em 0.8em;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button.delete i {
+    margin-right: 0.3em;
+}
+
+button.delete:hover {
+    background-color: #e64a19;
+}
+/* Estilos para la vista previa */
+#image-preview {
+    max-width: 150px;
+    max-height: 150px;
+    object-fit: cover;
+    margin-top: 10px;
+    border-radius: 8px;
+}
+
+/* Tarjetas de producto */
+
+.product-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Contenedor de productos con diseño adaptable */
+.product-grid {
+    display: grid;
+    gap: 20px; /* Espaciado entre las tarjetas */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Diseño dinámico */
+    justify-content: center; /* Centrar las tarjetas si hay espacio sobrante */
+}
+
+/* Para pantallas grandes: Ajustar a un máximo de 4 columnas */
+@media (min-width: 992px) {
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Mínimo 250px por tarjeta */
+    }
+}
+
+/* Para pantallas medianas: Ajustar a un máximo de 3 columnas */
+@media (min-width: 768px) and (max-width: 991px) {
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Mínimo 200px por tarjeta */
+    }
+}
+
+/* Para pantallas pequeñas: Máximo 2 columnas */
+@media (max-width: 767px) {
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Mínimo 150px por tarjeta */
+    }
+}
+
+/* Tarjetas de productos */
+.product-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    max-width: 100%; /* Evitar que las tarjetas excedan su contenedor */
+    margin: 0 auto; /* Centrar las tarjetas */
+}
+
+/* Imagen dentro de las tarjetas */
+.product-card img {
+    width: 100%;
+    height: auto;
+    max-height: 150px; /* Limitar la altura de la imagen */
+    object-fit: cover; /* Ajustar imagen sin deformarla */
+    border-radius: 8px;
+}
+
+/* Estilo del contenido dentro de la tarjeta */
+.product-card h5 {
+    margin-top: 10px;
+    font-size: 1.2em;
+    color: #4CAF50;
+}
+
+.product-card p {
+    margin: 5px 0;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.product-card .product-actions button {
+    margin: 5px;
+}
+
+/* Estilos para las tarjetas del modal */
+#modal-product-container .product-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#modal-product-container .product-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#modal-product-container .product-card img {
+    width: 100%;
+    max-height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+#modal-product-container .product-card h5 {
+    margin-top: 10px;
+    font-size: 1.2em;
+    color: #4CAF50;
+}
+/* Botón Ver Detalles */
+.product-actions button {
+    margin: 5px;
+}
+
+.product-actions .btn-details {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.product-actions .btn-details:hover {
+    background-color: #a5a5a5;
+}
+
+/* Imagen en el modal */
+.modal-body img {
+    border-radius: 8px;
+    max-height: 250px;
+    object-fit: cover;
+}
+
+/* Contenedor con transición para desplegar el formulario */
+.transition-container {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.transition-container.show {
+    max-height: 1000px; /* Valor lo suficientemente grande para acomodar el contenido */
+}
+
+/* Estilos para la barra lateral */
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 250px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease; /* Animación al ocultar/mostrar */
+}
+
+.sidebar.collapsed {
+    transform: translateX(-100%); /* Ocultar barra lateral */
+}
+.sidebar-title {
+    font-size: 1.5em;
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.sidebar-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    transition: left 0.3s ease; /* Animación al mover el botón */
+}
+
+.sidebar.collapsed ~ .sidebar-toggle {
+    left: 10px; /* Mover el botón al ocultar la barra lateral */
+}
+
+/* Icono dentro del botón */
+.sidebar-toggle i {
+    font-size: 1.2em;
+}
+
+.sidebar-link {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #45a049;
+    color: white;
+    border: none;
+    text-align: left;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.sidebar-link:hover {
+    background-color: #3e8e41;
+}
+
+.sidebar-link:focus {
+    outline: none;
+}
+
+/* Contenido principal */
+.main-content {
+    margin-left: 250px;
+    transition: margin-left 0.3s ease;
+}
+.main-content.collapsed {
+    margin-left: 0; /* Ajustar cuando la barra lateral está oculta */
+}
+
+header {
+    background-color: #f3f4f6;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0;
+}
+
+/* Ajustes para móviles */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+    }
+    .main-content {
+        margin-left: 200px;
+    }
+    .sidebar.collapsed ~ .sidebar-toggle {
+        left: 10px;
+    }
+}
+/* Iconos en los botones del menú */
+.sidebar-link i {
+    margin-right: 10px;
+    font-size: 1.2em;
+    color: white;
+    transition: color 0.3s;
+}
+
+/* Cambiar el color del icono al hacer hover */
+.sidebar-link:hover i {
+    color: #d4f5d4;
+}
+
+/*puto el que lo lea*/
